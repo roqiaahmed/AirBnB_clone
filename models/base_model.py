@@ -2,6 +2,7 @@
 """ Class BaseModel """
 from uuid import uuid4
 from datetime import datetime
+from models import storage
 
 class BaseModel:
     """ Construct """
@@ -19,11 +20,12 @@ class BaseModel:
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = self.created_at
-            'storage.new(self)''dont forget to add it when u finish the file of storage <<<<<<<<<<<<<<<<<'
+            storage.new(self)
 
     def save(self):
         """ save function """
         self.updated_at = datetime.now()
+        storage.save()
 
     def to_dict(self):
         """ Return a dictonary """
