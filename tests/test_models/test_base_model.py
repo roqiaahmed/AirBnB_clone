@@ -3,7 +3,7 @@
 import unittest
 from models.base_model import BaseModel
 
-class TestBaseModel(unittest.TestCase):
+class test_for_base_model(unittest.TestCase):
     """ Class test for BaseModel """
 
     def setUp(self):
@@ -24,7 +24,7 @@ class TestBaseModel(unittest.TestCase):
     def test_to_dict(self):
         """ check dict """
         base_model_dict = self.base_model.to_dict()
-        self.assertEqual(base_model_dict['__class__'], 'BaseModel')
+        self.assertEqual(base_model_dict['__name__'], 'BaseModel')
         self.assertEqual(type(base_model_dict['created_at']), str)
         self.assertEqual(type(base_model_dict['updated_at']), str)
 

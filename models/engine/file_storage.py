@@ -6,7 +6,7 @@ import json
 import uuid
 import os
 from datetime import datetime
-from models.base_model import BaseModel
+# from models.base_model import BaseModel
 
 class FileStorage:
     """ Construct """
@@ -33,9 +33,11 @@ class FileStorage:
 
     def reload(self):
         """ Reload the file """
-        if (os.path.isfile(FileStorage.__file_path)):
+        if os.path.isfile(FileStorage.__file_path):
             with open(FileStorage.__file_path, 'r', encoding="utf-8") as fname:
                 l_json = json.load(fname)
                 for key, val in l_json.items():
-                    FileStorage.__objects[key] = eval(
-                        val['__class__'])(**val)
+                    if '__class__' in val:
+                        obj_class = eval(val['__class__'])
+                        obj = obj_class(**val)
+                        FileStorage.__objects[key] = obj
