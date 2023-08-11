@@ -100,7 +100,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
             else:
                 l = [str(obj) for key, obj in storage.all().items()
-                     if type(obj).__name__ == args[0]]
+                        if type(obj).__name__ == args[0]]
                 print(l)
         else:
             l = [str(obj) for key, obj in storage.all().items()]
