@@ -6,6 +6,7 @@ import json
 import uuid
 import os
 from datetime import datetime
+# from models.user import User
 # from models.base_model import BaseModel
 
 class FileStorage:
@@ -41,3 +42,32 @@ class FileStorage:
                         obj_class = eval(val['__class__'])
                         obj = obj_class(**val)
                         FileStorage.__objects[key] = obj
+
+
+
+
+
+    # def reload(self):
+    #     """ Reload the file """
+    #     if os.path.isfile(FileStorage.__file_path):
+    #         with open(FileStorage.__file_path, 'r', encoding="utf-8") as fname:
+    #             l_json = json.load(fname)
+    #             for key, val in l_json.items():
+    #                 if '__class__' in val:
+    #                     cls_name = val['__class__']
+
+    #                     # if cls_name == 'User':
+    #                         # obj = User(**val)
+    #                     # elif cls_name == 'Place':
+    #                     #     obj = Place(**val)
+    #                     # elif cls_name == 'State':
+    #                     #     obj = State(**val)
+    #                     # elif cls_name == 'City':
+    #                     #     obj = City(**val)
+    #                     # elif cls_name == 'Amenity':
+    #                     #     obj = Amenity(**val)
+    #                     # elif cls_name == 'Review':
+    #                     #     obj = Review(**val)
+    #                     # else:
+    #                     #     obj = BaseModel(**val)
+    #                     FileStorage.__objects[key] = obj

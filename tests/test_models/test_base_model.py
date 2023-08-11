@@ -2,6 +2,7 @@
 """ testing files """
 import unittest
 from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
 
 class test_for_base_model(unittest.TestCase):
     """ Class test for BaseModel """
