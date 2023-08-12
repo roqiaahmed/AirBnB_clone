@@ -4,6 +4,7 @@ from uuid import uuid4
 from datetime import datetime
 from models import storage
 
+
 class BaseModel:
     """ Construct """
 
@@ -30,11 +31,12 @@ class BaseModel:
     def to_dict(self):
         """ Return a dictonary """
         data = self.__dict__.copy()
-        data['__name__'] =  self.__class__.__name__
-        data['created_at'] =  self.created_at.isoformat()
-        data['updated_at'] =  self.updated_at.isoformat()
+        data['__name__'] = self.__class__.__name__
+        data['created_at'] = self.created_at.isoformat()
+        data['updated_at'] = self.updated_at.isoformat()
         return data
 
     def __str__(self):
         """ String """
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        class_name = self.__class__.__name__
+        return "[{}] ({}) {}".format(class_name, self.id, self.__dict__)
